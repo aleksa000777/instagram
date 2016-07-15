@@ -19,16 +19,16 @@ function getit(){
   $('button').on('click', function(e){
     $( "#list-img" ).empty();
     e.preventDefault();
-    let tag = this.id;
+     tag = this.id;
     getTagImages(tag)
   })
 }
 
 function getTagImages(tag){
-  for(let i=0;i<allData.length;i++){
-    let current = allData[i];
-    for(let i = 0; i<current.tags.length;i++){
-      if(current.tags[i]===tag){
+  for(var i=0;i<allData.length;i++){
+    var current = allData[i];
+    for(var y = 0; y<current.tags.length;y++){
+      if(current.tags[y]===tag){
         var imgUrl = current.images.standard_resolution.url;
         $('#list-img').append( $('<li><img src='+imgUrl+'/></li>') )
       }
@@ -38,13 +38,13 @@ function getTagImages(tag){
 
 function getTags(){
   var allTags = [];
-  for(let i=0;i<allData.length;i++){
-    let current = allData[i];
-    for(let i = 0; i<current.tags.length;i++){
-      if(allTags.indexOf(current.tags[i]) > -1){
+  for(var i=0;i<allData.length;i++){
+    var current = allData[i];
+    for(var y = 0; y<current.tags.length;y++){
+      if(allTags.indexOf(current.tags[y]) > -1){
       }
       else{
-        allTags.push(current.tags[i])
+        allTags.push(current.tags[y])
       }
     }
   }
@@ -53,8 +53,8 @@ function getTags(){
 }
 
 function createButton(allTags){
-  for(let i=0;i<allTags.length;i++){
-    let singleTag = allTags[i];
+  for(var i=0;i<allTags.length;i++){
+    var singleTag = allTags[i];
     $('.list-buttons').append( $('<button id='+allTags[i]+'>'+allTags[i]+'</button>') )
   }
 
