@@ -1,3 +1,6 @@
+.title{
+  text-align: center;
+}
 img{
   width: 200px
 }
@@ -6,4 +9,25 @@ ul{
 }
 li{
   margin-top: 10px
+}
+
+.content{
+  position: relative;
+  display: inline-block;
+
+}
+.list-buttons{
+  position: absolute;
+  width: 40%;
+  width: 200px;
+  margin: 0 auto;
+  /*float: left;*/
+  display: inline-block;
+}
+.galerry{
+  position: absolute;
+  width: 40%;
+  display: inline-block;
+  left: 300px
+
 }
