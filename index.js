@@ -2,6 +2,7 @@ var express = require('express');
 var app = express();
 var request = require('request');
 require('dotenv').config();
+var cheerio = require('cheerio');
 const access_token = process.env.ACCESS_TOKEN;
 var url = 'https://api.instagram.com/v1/users/self/media/recent/?access_token='+access_token;
 
@@ -24,6 +25,20 @@ app.get('/api', function(req, res){
       var obj = JSON.parse(body);
       res.json({obj})
       res.end();
+    }
+  })
+})
+
+app.get('/apiinsta', function(req,res){
+  url = 'https://www.instagram.com/explore/tags/dogsofcarrot/'
+  request(url, function(error, response,html){
+    if(!error){
+      var $ = cheerio.load(html);
+      console.log(response.body);
+      var mydata = response.body
+      res.json({mydata});
+      res.end();
+
     }
   })
 })

@@ -3,6 +3,7 @@ $(document).ready(function(){
 })
 function init(){
   main();
+  getinsta();
 }
 
 var allData;
@@ -10,6 +11,7 @@ function main(){
   var jqxhr = $.ajax( "/api" )
     .done(function(e) {
       allData = e.obj.data
+      // console.log(e);
       getTags();
       getit();
     })
@@ -48,7 +50,6 @@ function getTags(){
       }
     }
   }
-  console.log('allTags', allTags);
   createButton(allTags)
 }
 
@@ -58,4 +59,15 @@ function createButton(allTags){
     $('.list-buttons').append( $('<button id='+allTags[i]+'>'+allTags[i]+'</button>') )
   }
 
+}
+
+
+
+
+function getinsta(){
+  var jqxhr = $.ajax( "/apiinsta" )
+    .done(function(e) {
+      var allData = e;
+      console.log(allData);
+    })
 }
