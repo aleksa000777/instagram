@@ -67,7 +67,8 @@ function createButton(allTags){
 function getinsta(){
   var jqxhr = $.ajax( "/apiinsta" )
     .done(function(e) {
-      var allData = e;
-      console.log(allData);
+      var allData = e.mydata;
+      // JSON.stringify(allData);
+      // console.log(allData);
     })
 }
